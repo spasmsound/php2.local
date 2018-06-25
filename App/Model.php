@@ -32,4 +32,32 @@ abstract class Model
         }
         return $data[0];
     }
+
+    public function insert()
+    {
+        $fields = get_object_vars($this);
+
+        $cols = [];
+        $data = [];
+
+        foreach ($fields as $name => $value) {
+            if ('id' == $name) {
+                continue;
+            }
+            $cols[] = $name;
+            $data[':' . $name] = $value;
+        }
+
+        $sqlParts = [];
+        $sqlParts['part1'] = 'INSERT INTO ' . static::TABLE;
+        $sqlParts['part2'] = ' (' . implode(',', $cols) . ')';
+        $sqlParts['part3'] = ' VALUES (' . implode(',', array_keys($data)) . ') ';
+        $sql = $sqlParts['part1'] . $sqlParts['part2'] . $sqlParts['part3'];
+
+        $db = new Db();
+        $db->execute($sql, $data);
+
+        $this->id = $db->getLastId();
+    }
+
 }
