@@ -2,10 +2,8 @@
 
 require __DIR__ . '/autoload.php';
 
-$article = new \App\Models\Article();
-$article->title = 'Заголовок';
-$article->content = 'Опять чето там';
-$article->insert();
+$article = \App\Models\Article::findById(4);
+$article->delete();
 die;
 $data = \App\Models\Article::findLastArticles();
 
