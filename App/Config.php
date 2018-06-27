@@ -7,9 +7,19 @@ class Config
 {
 
     public $data;
+    protected static $instance;
 
-    public function __construct()
+    private function __construct()
     {
         $this->data = require __DIR__ . '/../config.php';
+    }
+
+    public static function instance()
+    {
+        if (static::$instance !== null) {
+            return static::$instance;
+        }
+        static::$instance = new static();
+        return static::$instance;
     }
 }

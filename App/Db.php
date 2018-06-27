@@ -11,9 +11,9 @@ class Db
 
     public function __construct()
     {
-        $this->cfg = require __DIR__ . '/../config.php';
-        $this->dsn = 'mysql:host=' . $this->cfg['host'] . ';dbname=' . $this->cfg['dbname'] . ';charset=' . $this->cfg['charset'];
-        $this->dbh = new \PDO($this->dsn, $this->cfg['username'], $this->cfg['password']);
+        $this->cfg = Config::instance();
+        $this->dsn = 'mysql:host=' . $this->cfg->data['host'] . ';dbname=' . $this->cfg->data['dbname'] . ';charset=' . $this->cfg->data['charset'];
+        $this->dbh = new \PDO($this->dsn, $this->cfg->data['username'], $this->cfg->data['password']);
     }
 
     public function query($sql, $class, $data = [])
