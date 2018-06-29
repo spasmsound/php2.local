@@ -1,3 +1,8 @@
+<?php
+/** @var \App\View $this
+ * @var \App\Models\Article $this
+ */
+?>
 <!doctype html>
 <html lang="ru">
 <head>
@@ -12,7 +17,10 @@
 <?php
     foreach ($this->articles as $article) : ?>
         <a href="/article.php?id=<?php echo $article->id; ?>"><h1><?php echo $article->title ?></h1></a>
-            <?php echo $article->content ?>
+            <?php
+                echo $article->content . '<br><br>';
+                echo 'Автор: ' . ($article->author->name ?? 'Без автора');
+            ?>
         <hr>
    <?php endforeach; ?>
 </body>

@@ -2,11 +2,19 @@
 
 namespace App;
 
-
+/**
+ * Class Config
+ * @package App
+ * Является синглтоном
+ */
 class Config
 {
 
+    /**
+     * @property $data
+     */
     public $data;
+
     protected static $instance;
 
     private function __construct()
@@ -14,6 +22,9 @@ class Config
         $this->data = require __DIR__ . '/../config.php';
     }
 
+    /**
+     * @return mixed
+     */
     public static function instance()
     {
         if (static::$instance !== null) {

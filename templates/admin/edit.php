@@ -14,6 +14,8 @@
     <i>Заголовок: <?php echo $article->title ?> </i>
     <br>
     <i>Текст: <?php echo $article->content ?></i>
+    <br>
+    <i>Автор: <?php echo $article->author->name ?></i>
 </h5>
 
 <form method="post" action="/admin/save.php?id=<?php echo $article->id?>">

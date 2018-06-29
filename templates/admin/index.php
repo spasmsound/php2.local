@@ -20,7 +20,8 @@ foreach ($articles as $article): ?>
     </h4>
         <?php echo $article->content; ?>
     <p>
-        <i>Новость №:<?php echo $article->id; ?></i>
+        <i>Новость №:<?php echo $article->id; ?></i><br>
+        <i>Автор: <?php echo $article->author->name ?? 'Без автора'; ?></i>
     </p>
     <hr>
 <?php endforeach; ?>

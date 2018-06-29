@@ -2,14 +2,28 @@
 
 namespace App;
 
+/**
+ * Class Model
+ * @package App
+ */
 abstract class Model
 {
 
+    /**
+     * Константа TABLE, описывающая имя таблицы, из которой будут браться данные
+     */
     public const TABLE = '';
 
+    /**
+     * @property $id
+     */
     public $id;
 
-    public static function findAll()
+    /**
+     * @return array
+     * Ищет все новости из БД
+     */
+    public static function findAll() : array
     {
         $db = new Db();
 
@@ -17,18 +31,28 @@ abstract class Model
         return $db->query($sql,static::class);
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     * Ищет новсоть по ID из БД
+     */
     public static function findById($id)
     {
         $db = new Db();
 
         $sql = 'SELECT * FROM ' . static::TABLE . ' WHERE id=:id';
+
         $data = $db->query($sql, static::class, [':id' => $id]);
+
         if (empty($data) || $data === false) {
             return false;
         }
         return $data[0];
     }
 
+    /**
+     * Метод для вставки данных в БД
+     */
     protected function insert()
     {
         $fields = get_object_vars($this);
@@ -56,6 +80,9 @@ abstract class Model
         $this->id = $db->getLastId();
     }
 
+    /**
+     * Метод для редактирования данных в БД
+     */
     protected function update()
     {
         $fields = get_object_vars($this);
@@ -77,6 +104,9 @@ abstract class Model
         $db->execute($sql, $data);
     }
 
+    /**
+     * Метод для удаления данных из БД
+     */
     public function delete()
     {
         //DELETE FROM news WHERE id=:id;
@@ -87,6 +117,9 @@ abstract class Model
         $db->execute($sql, $data);
     }
 
+    /**
+     * Метод, сохраняющий данные в БД
+     */
     public function save()
     {
         if (null == $this->id) {
@@ -94,4 +127,5 @@ abstract class Model
         }
         $this->update();
     }
+
 }

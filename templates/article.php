@@ -12,5 +12,6 @@
 <h1><?php echo $article->title; ?></h1>
 <hr>
 <p><?php echo $article->content; ?></p>
+<p><?php echo 'Автор: ' . ($article->author->name ?? 'Без автора') ?></p>
 </body>
 </html>
