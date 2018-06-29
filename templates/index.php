@@ -10,10 +10,10 @@
 <body>
 
 <?php
-    foreach ($data as $value) { ?>
-        <a href="/article.php?id=<?php echo $value->id; ?>"><h1><?php echo $value->title ?></h1></a>
-            <?php echo $value->content ?>
+    foreach ($this->articles as $article) : ?>
+        <a href="/article.php?id=<?php echo $article->id; ?>"><h1><?php echo $article->title ?></h1></a>
+            <?php echo $article->content ?>
         <hr>
-   <?php } ?>
+   <?php endforeach; ?>
 </body>
 </html>

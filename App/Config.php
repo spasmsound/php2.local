@@ -22,4 +22,5 @@ class Config
         static::$instance = new static();
         return static::$instance;
     }
+
 }
