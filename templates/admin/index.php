@@ -9,16 +9,14 @@
 </head>
 <body>
 <h1>Админ-панель</h1>
-<br><br>
 <?php
-
-foreach ($articles as $article): ?>
+foreach ($this->articles as $article): ?>
     <h4>
         <?php echo $article->title; ?>
         <a href="/admin/edit.php?id=<?php echo $article->id; ?>"> РЕДАКТИРОВАТЬ</a>
         <a href="/admin/delete.php?id=<?php echo $article->id; ?>">УДАЛИТЬ</a>
     </h4>
-        <?php echo $article->content; ?>
+    <?php echo $article->content; ?>
     <p>
         <i>Новость №:<?php echo $article->id; ?></i><br>
         <i>Автор: <?php echo $article->author->name ?? 'Без автора'; ?></i>

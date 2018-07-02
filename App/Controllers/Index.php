@@ -2,14 +2,12 @@
 
 namespace App\Controllers;
 
-use App\View;
-
-class Index
+class Index extends Controller
 {
-    public function action()
+    public function __invoke()
     {
-        $view = new View();
-        $view->articles = \App\Models\Article::findAll();
-        $view->display(__DIR__ . '/../../templates/index.php');
+        $this->view->articles = \App\Models\Article::findAll();
+        $this->view->display(__DIR__ . '/../../templates/index.php');
     }
+
 }

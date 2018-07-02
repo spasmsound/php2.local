@@ -21,7 +21,7 @@
                 echo $article->content . '<br><br>';
                 echo 'Автор: ' . ($article->author->name ?? 'Без автора');
             ?>
-        <hr>
-   <?php endforeach; ?>
+    <hr>
+<?php endforeach; ?>
 </body>
 </html>

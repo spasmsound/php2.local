@@ -2,13 +2,12 @@
 
 namespace App\Controllers;
 
-class Article
+class Article extends Controller
 {
-    public function action()
+    public function __invoke()
     {
-        $view = new View();
-        $view->article = \App\Models\Article::findById($_GET['id']);
-        $view->display(__DIR__ . '/../../templates/index.php');
+        $this->view->article = \App\Models\Article::findById($_GET['id']);
+        $this->view->display(__DIR__ . '/../../templates/article.php');
     }
 
 }

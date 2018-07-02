@@ -9,9 +9,10 @@
 </head>
 <body>
 
-<h1><?php echo $article->title; ?></h1>
+<h1><?php echo $this->article->title; ?></h1>
 <hr>
-<p><?php echo $article->content; ?></p>
-<p><?php echo 'Автор: ' . ($article->author->name ?? 'Без автора') ?></p>
+<p><?php echo $this->article->content; ?></p>
+<p><?php echo 'Автор: ' . ($this->article->author->name ?? 'Без автора') ?></p>
+
 </body>
 </html>
