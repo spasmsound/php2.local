@@ -13,8 +13,8 @@
 foreach ($this->articles as $article): ?>
     <h4>
         <?php echo $article->title; ?>
-        <a href="/admin/edit.php?id=<?php echo $article->id; ?>"> РЕДАКТИРОВАТЬ</a>
-        <a href="/admin/delete.php?id=<?php echo $article->id; ?>">УДАЛИТЬ</a>
+        <a href="/admin/edit/?id=<?php echo $article->id; ?>"> РЕДАКТИРОВАТЬ</a>
+        <a href="/admin/delete/?id=<?php echo $article->id; ?>">УДАЛИТЬ</a>
     </h4>
     <?php echo $article->content; ?>
     <p>
@@ -25,7 +25,7 @@ foreach ($this->articles as $article): ?>
 <?php endforeach; ?>
 
 <h3>Добавить новость</h3>
-<form method="post" action="/admin/create.php">
+<form method="post" action="/admin/save/">
     <p>Заголовок</p>
     <textarea name="title" id="" cols="30" rows="10"></textarea>
     <br>

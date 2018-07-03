@@ -18,7 +18,7 @@
     <i>Автор: <?php echo $this->article->author->name ?></i>
 </h5>
 
-<form method="post" action="/admin/save.php?id=<?php echo $this->article->id?>">
+<form method="post" action="/admin/save/?id=<?php echo $this->article->id?>">
     <p>Редактирование заголовка новости</p>
     <textarea name="title" cols="30" rows="10"><?php echo $this->article->title ?></textarea>
     <br>

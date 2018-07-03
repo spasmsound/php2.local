@@ -5,9 +5,10 @@ namespace App\Controllers;
 class Article extends Controller
 {
 
-    protected function handle()
+    protected function actionOne()
     {
-        $this->view->article = \App\Models\Article::findById($_GET['id']);
+        $id = $_GET['id'];
+        $this->view->article = \App\Models\Article::findById($id);
         $this->view->display(__DIR__ . '/../../templates/article.php');
     }
 

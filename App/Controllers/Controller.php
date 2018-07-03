@@ -19,15 +19,16 @@ abstract class Controller
         return true;
     }
 
-    public function __invoke()
+
+    public function action($action)
     {
         if ($this->access()) {
-            $this->handle();
+            $method = 'action' . $action;
+            $this->$method();
+        } else {
+            die('Доступ закрыт');
         }
 
-        die('Нет Доступа');
     }
-
-    abstract protected function handle();
 
 }
