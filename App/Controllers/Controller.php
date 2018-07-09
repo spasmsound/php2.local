@@ -19,7 +19,6 @@ abstract class Controller
         return true;
     }
 
-
     public function action($action)
     {
         if ($this->access()) {
