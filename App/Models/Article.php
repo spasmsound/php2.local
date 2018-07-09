@@ -34,11 +34,24 @@ class Article extends Model
 
     /**
      * @param $name
-     * @return bool
+     * @return mixed
      */
     public function __get($name)
     {
-        return Author::findById($this->authorId) ?? null;
+        if ('author' == $name) {
+            return Author::findById($this->authorId) ?: null;
+        }
+    }
+
+    /**
+     * @param $name
+     * @return bool
+     */
+    public function __isset($name)
+    {
+        if ('author' == $name) {
+            return isset($this->authorId);
+        }
     }
 
     /**

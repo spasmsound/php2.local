@@ -12,7 +12,12 @@
 <h1><?php echo $this->article->title; ?></h1>
 <hr>
 <p><?php echo $this->article->content; ?></p>
-<p><?php echo 'Автор: ' . ($this->article->author->name ?? 'Без автора') ?></p>
 
+<?php
+if (isset($this->article->author->name)) : ?>
+    <p> Автор: <?php echo $this->article->author->name; ?></p>
+<?php else : ?>
+    <p>Автор: Без Автора</p>
+<?php endif ?>
 </body>
 </html>
